@@ -51,15 +51,15 @@ try:
                 print(f"Invalid marks for {name} in Chemistry: '{p[3]}'. Row skipped.")
                 continue
 
-        if m < 0 or m > 100:
+        if not 0 <=m <=100:
             print(f"Invalid marks for {name} in Maths. Row skipped.")
             continue
 
-        if ph < 0 or ph > 100:
+        if not 0 <= ph <=100:
             print(f"Invalid marks for {name} in Physics. Row skipped.")
             continue
 
-        if c < 0 or c > 100:
+        if not 0 <= c <= 100:
             print(f"Invalid marks for {name} in Chemistry. Row skipped.")
             continue
 
@@ -73,7 +73,7 @@ except FileNotFoundError:
 df = pd.DataFrame(data, columns=['Name', 'Maths', 'Physics', 'Chemistry'])
 
 if len(df) == 0:
-    print("No valid student records found.")
+    pass
 
 else:
 
@@ -120,7 +120,7 @@ else:
 
             for i in range(len(df)):
 
-                print(f"{df.loc[i, 'Name']} | {int(df.loc[i, 'Total'])} | {df.loc[i, 'Percentage']:.2f}% | {df.loc[i, 'Grade']}")
+                print(f"{df.loc[i, 'Name']} | {df.loc[i, 'Total']:.2f} | {df.loc[i, 'Percentage']:.2f}% | {df.loc[i, 'Grade']}")
 
         elif ch == '2':
 
